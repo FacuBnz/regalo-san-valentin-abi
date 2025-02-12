@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz San Valentín Abi</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="valentine-container">
+        <!-- Header -->
+        <header class="fade-in">
+            <h1>Feliz San Valentín Abi</h1>
+            <div class="hearts">
+                <div class="heart"></div>
+                <div class="heart"></div>
+                <div class="heart"></div>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <!-- Sección Playlist -->
+            <section class="playlist-section slide-up">
+                <h2>He creado esta playlist pensando en ti</h2>
+                <p class="subtitle">Cada canción tiene un significado especial para nosotros</p>
+                <div class="spotify-card">
+                    <a href="TU_LINK_DE_SPOTIFY" target="_blank" rel="noopener noreferrer">
+                        <div class="card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/1982px-Spotify_icon.svg.png" alt="Spotify" class="spotify-icon">
+                            <h3>Nuestra Playlist</h3>
+                            <p>Click para escuchar ❤️</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sección Cupones -->
+            <section class="gifts-section slide-up">
+                <h2>Mis regalos</h2>
+                <div class="gifts-grid">
+                    <div class="gift-card" onclick="openModal('Un masaje relajante')">
+                        <h3>Cupón 1</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Desayuno en la cama')">
+                        <h3>Cupón 2</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Comida favorita')">
+                        <h3>Cupón 3</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Una tarde de películas')">
+                        <h3>Cupón 4</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Un día de aventura')">
+                        <h3>Cupón 5</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Lo que tú quieras')">
+                        <h3>Cupón 6</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Lo que tú quieras')">
+                        <h3>Cupón 7</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Lo que tú quieras')">
+                        <h3>Cupón 8</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Lo que tú quieras')">
+                        <h3>Cupón 9</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Lo que tú quieras')">
+                        <h3>Cupón 10</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Lo que tú quieras')">
+                        <h3>Cupón 10</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Lo que tú quieras')">
+                        <h3>Cupón 10</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Lo que tú quieras')">
+                        <h3>Cupón 10</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                    <div class="gift-card" onclick="openModal('Lo que tú quieras')">
+                        <h3>Cupón 10</h3>
+                        <span class="gift-icon">🎁</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="fade-in">
+            <p class="love-message">Te amo. Gracias por ser parte de mi vida.</p>
+            <p class="signature">Facu</p>
+        </footer>
+
+        <!-- Modal -->
+        <div id="giftModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <p id="modalText"></p>
+                <span class="modal-heart">❤️</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

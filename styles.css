@@ -1,0 +1,442 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff5f5;
+    min-height: 100vh; /* Cambiado de height a min-height */
+    overflow: hidden; /* El overflow hidden solo aplicará en desktop */
+}
+
+.valentine-container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 1vh 2vw;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 2vh 0;
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    color: #ff6b6b;
+    font-size: 3.5em;
+    margin-bottom: 1vh;
+    font-weight: 700;
+}
+
+/* Corazones animados */
+.hearts {
+    position: relative;
+    height: 5vh;
+    margin: 2vh 0;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b6b;
+    transform: rotate(45deg);
+    animation: float 4s ease-in-out infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff6b6b;
+}
+
+.heart:before {
+    left: -10px;
+    top: 0;
+}
+
+.heart:after {
+    top: -10px;
+    left: 0;
+}
+
+/* Posicionamiento de cada corazón */
+.heart:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+    transform-origin: center;
+}
+
+.heart:nth-child(2) {
+    left: 50%;
+    animation-delay: 1s;
+    transform-origin: center;
+}
+
+.heart:nth-child(3) {
+    left: 80%;
+    animation-delay: 2s;
+    transform-origin: center;
+}
+
+/* Main Content */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2vw;
+    padding: 1vh 0;
+    height: 100%;
+}
+
+/* Sección Playlist */
+.playlist-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 2vw;
+}
+
+.playlist-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 1vh;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-family: 'Poppins', sans-serif;
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 2vh;
+    font-weight: 300;
+}
+
+.spotify-card {
+    width: 100%;
+    max-width: 300px;
+}
+
+.spotify-card a {
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 2vh 2vw;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+    margin-bottom: 0.5vh;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.spotify-icon {
+    width: 40px;
+    margin-bottom: 1vh;
+}
+
+/* Sección Regalos */
+.gifts-section {
+    padding: 2vh 2vw;
+    text-align: center;
+}
+
+.gifts-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    margin-bottom: 2vh;
+    font-weight: 700;
+}
+
+
+.gifts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5vh 1.5vw;
+    height: 80%;
+}
+
+.gift-card {
+    background: white;
+    padding: 1vh 1vw;
+    border-radius: 15px;
+    border: 2px solid #ff6b6b;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-card:hover {
+    transform: translateY(-5px);
+}
+
+.gift-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    margin-bottom: 1vh;
+    font-weight: 600;
+}
+
+.gift-icon {
+    font-size: 1.5em;
+}
+
+/* Estilos para cards deshabilitadas */
+.gift-card.disabled {
+    /* Cambios visuales */
+    opacity: 0.7;
+    background-color: #f5f5f5;
+    border-color: #ccc;
+    position: relative;
+    cursor: not-allowed;
+    transform: none !important; /* Previene el efecto hover de elevación */
+}
+
+/* Marca de "usado" */
+.gift-card.disabled::after {
+    content: 'USADO';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2em;
+    color: #ff6b6b;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    pointer-events: none; /* Asegura que el texto no interfiera con clicks */
+}
+
+/* Tachado suave del título */
+.gift-card.disabled h3 {
+    text-decoration: line-through;
+    text-decoration-color: #ff6b6b;
+    text-decoration-thickness: 2px;
+    color: #999;
+}
+
+/* Ícono del regalo más opaco */
+.gift-card.disabled .gift-icon {
+    opacity: 0.5;
+}
+
+/* Deshabilitar efectos hover */
+.gift-card.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Animación al deshabilitar */
+.gift-card {
+    transition: all 0.3s ease;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 3vh 3vw;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    animation: modalOpen 0.3s ease;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+}
+
+.close-button {
+    position: absolute;
+    right: 2vw;
+    top: 1vh;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-heart {
+    font-size: 1.5em;
+    display: block;
+    margin-top: 2vh;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2vh 0;
+}
+
+.love-message {
+    font-family: 'Dancing Script', cursive;
+    color: #ff6b6b;
+    font-size: 1.8em;
+    margin-bottom: 0.5vh;
+    font-weight: 700;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-style: normal;
+    font-size: 1.4em;
+    font-weight: 400;
+}
+
+/* Animaciones */
+@keyframes float {
+    0%, 100% {
+        transform: rotate(45deg) translateY(0);
+    }
+    50% {
+        transform: rotate(45deg) translateY(-10px);
+    }
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease;
+}
+
+.slide-up {
+    animation: slideUp 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        overflow: auto; /* Permitir scroll en móviles */
+        height: auto; /* Altura automática en móviles */
+    }
+
+    .valentine-container {
+        height: auto; /* Altura automática en móviles */
+        min-height: 100vh;
+        padding: 2vh 3vw; /* Más padding en móviles */
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 3vh; /* Más espacio entre secciones */
+        padding: 2vh 0;
+    }
+
+    .playlist-section, 
+    .gifts-section {
+        padding: 3vh 2vw; /* Más padding en las secciones */
+    }
+
+    .gifts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 2vh 2vw; /* Más espacio entre cards */
+        height: auto; /* Altura automática para la grid */
+    }
+
+    /* Ajustar espaciado del footer en móvil */
+    footer {
+        padding: 4vh 0;
+        margin-top: 2vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .valentine-container {
+        padding: 2vh 2vw;
+    }
+
+    .gifts-grid {
+        gap: 1.5vh 1.5vw;
+    }
+
+    .gift-card {
+        padding: 1.5vh 2vw;
+    }
+
+    /* Ajustar espaciados para pantallas muy pequeñas */
+    .playlist-section,
+    .gifts-section {
+        padding: 2vh 2vw;
+    }
+
+    header {
+        padding: 2vh 0;
+    }
+
+    footer {
+        padding: 3vh 0;
+    }
+}
+
+/* Media query para ajustar el tamaño del texto "USADO" en móviles */
+@media (max-width: 480px) {
+    .gift-card.disabled::after {
+        font-size: 0.9em;
+        letter-spacing: 1px;
+    }
+}
